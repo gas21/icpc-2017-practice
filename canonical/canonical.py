@@ -1,6 +1,5 @@
 # use python 3
 import sys
-from operator import itemgetter
 
 
 def greedy(n, l):
@@ -15,28 +14,25 @@ def greedy(n, l):
 
 
 def dynamic(m, l):
-    sol, b = [1], len(l)
+    sol = [1]
+    b, mj = len(l), 0
     for change in range(2, m + 1):
-        b = len(l)
-        while True:
-            if change in l:
-                sol.append(1)
-                break
-            else:
-                try:
-                    s = min([sol[change - x - 1] for x in l[:b]])
-                    sol.append(s + 1)
-                    break
-                except IndexError:
-                    b -= 1
-    return sol[-1]
+        if change in l:
+            sol.append(1)
+            yield 1
+        else:
+            while l[mj] < change and mj < b-1:
+                mj += 1
+            s = min([sol[change - x - 1] for x in l[:mj]])
+            sol.append(s + 1)
+            yield s + 1
 
 
-def canonical(n, l):
-    j = l[-1] + l[-2]
-    for i in range(1, j):
-        a, b = dynamic(i, l), greedy(i, l)
-        if a != b:
+def canonical(l):
+    j = l[-1] + l[-2] - 1
+    z = dynamic(j, l)
+    for a, i in zip(z, range(2, j)):
+        if a != greedy(i, l):
             print("non-canonical")
             return
     print("canonical")
@@ -45,4 +41,4 @@ def canonical(n, l):
 if __name__ == "__main__":
     input = sys.stdin.read()
     data = list(map(int, input.split()))
-    canonical(data[0], data[1:])
+    canonical(data[1:])
