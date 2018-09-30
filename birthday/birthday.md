@@ -1,4 +1,4 @@
-On his birthday, Johnís parents made him a huge birthday cake! Everyone had a wonderful dinner, and now itís time to eat the cake. There are n candles on the cake. John wants to divide the cake into n pieces so that each piece has exactly one candle on it, and there are no left-over pieces. For that, he made m cuts across the cake. Could you help check if Johnís cuts successfully divide the candles on the cake?
+On his birthday, John‚Äôs parents made him a huge birthday cake! Everyone had a wonderful dinner, and now it‚Äôs time to eat the cake. There are n candles on the cake. John wants to divide the cake into n pieces so that each piece has exactly one candle on it, and there are no left-over pieces. For that, he made m cuts across the cake. Could you help check if John‚Äôs cuts successfully divide the candles on the cake?
 
 Formally, the cake is a circle of radius r centered at (0,0). The candles are n distinct points located strictly inside the circle. Each cut is a straight line ax+by+c=0, described by three coefficients a, b, and c.
 
@@ -12,4 +12,4 @@ The next m lines give the coefficients of the cutting lines. Each line has three
 All candles and lines are distinct. No candle is on a cut line. No line is completely outside or tangent to the cake. The input guarantees that the number of cake pieces remains the same if any cut line is shifted by at most 10-4 in any direction. The input also guarantees that each candle remains in the interior of the same piece of cake if its position is shifted by at most 10-4 in any direction.
 
 Output
-Output ìyesî if Johnís cuts successfully divide the cake so that each piece he obtains has exactly one candle on it. Otherwise, output ìnoî.
+Output ‚Äúyes‚Äù if John‚Äôs cuts successfully divide the cake so that each piece he obtains has exactly one candle on it. Otherwise, output ‚Äúno‚Äù.
